@@ -1,0 +1,155 @@
+$primary: #ec9d9d;
+$secondary: #A2AFBB;
+$second: #ffeded;
+*{
+  overflow: hidden;
+}
+.mainContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+
+  .formContainer {
+    padding: 100px;
+    width: 60%;
+    overflow: auto;
+    .formFields {
+      display: flex;
+
+      > form {
+        gap: 20px;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        .item {
+          width: 40%;
+          > div {
+            margin-bottom: 10px;
+            color: $primary;
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+        }
+      }
+
+    }
+
+    .formDescription {
+      > h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: $primary;
+      }
+
+      > div {
+        font-size: 1.2rem;
+        font-weight: 500;
+        font-weight: 500;
+        color: $primary;
+      }
+
+      > p {
+        font-size: 1.0rem;
+        font-weight: 500;
+        font-weight: 500;
+        color: $secondary;
+      }
+    }
+    .question{
+      .questionTitle{
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $primary;
+        .questionNumber{
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: $primary;
+        }
+        .questionText{
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+  .reactionContainer {
+    height: 100vh;
+    background-color: $second;
+    width: 40%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    display: flex;
+    align-items: center;
+
+
+    .hiddenText{
+      opacity: 0 !important;
+    }
+    .selectedFields{
+      width: 100%;
+      display: flex;
+      padding: 30px;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      >span
+      {
+        margin-left: 10px;
+        font-weight: 500;
+      }
+
+    }
+    .image{
+      display: flex;
+      justify-content: center;
+      >img{
+        width: 80%;
+      }
+    }
+    .image2{
+      display: flex;
+      justify-content: center;
+      >img{
+        width: 100%;
+      }
+    }
+    .constraints{
+      padding: 10px;
+      font-weight: 500;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+::ng-deep.mat-mdc-form-field {
+  width: 100%;
+}
+.scrollbar {
+  overflow-y: scroll;
+  scrollbar-color:transparent;
+  scrollbar-width: thin;
+}
+
+.scrollbar::-webkit-scrollbar-track
+{
+  box-shadow: transparent;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  box-shadow: transparent;
+  background-color: transparent;
+}

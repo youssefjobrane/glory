@@ -1,0 +1,138 @@
+<div class="mainContainer">
+
+  <div class="formContainer scrollbar">
+    <div class="formDescription">
+      <h2>Register</h2>
+      <div>Add your personal information</div>
+      <p>industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer</p>
+    </div>
+    <div class="formFields">
+      <form [formGroup]="editForm">
+        <div class="item">
+          <div>First name</div>
+          <mat-form-field appearance="outline">
+            <input matInput (change)="checkValidity(editForm.get('firstName')!.valid)" formControlName="firstName"
+                   placeholder="ex : glory " (focus)="setFocusedField('firstName')" (focusout)="focusedField=''">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Last name</div>
+          <mat-form-field appearance="outline">
+            <input matInput (change)="checkValidity(editForm.get('lastName')!.valid)" formControlName="lastName"
+                   placeholder="ex : team" (focus)="setFocusedField('lastName')" (focusout)="focusedField=''">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Phone number</div>
+          <mat-form-field appearance="outline">
+            <input matInput (change)="checkValidity(editForm.get('phoneNumber')!.valid)" formControlName="phoneNumber"
+                   placeholder="ex : 65 727 363" (focus)="setFocusedField('phoneNumber')" (focusout)="focusedField=''">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Email</div>
+          <mat-form-field appearance="outline">
+            <input matInput (change)="checkValidity(editForm.get('email')!.valid)" formControlName="email"
+                   placeholder="ex : ex@email.com" (focus)="setFocusedField('email')" (focusout)="focusedField=''">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Password</div>
+          <mat-form-field appearance="outline">
+            <input type="password" (change)="checkValidity(editForm.get('password')!.valid)" formControlName="password"
+                   matInput placeholder="••••••" (focus)="setFocusedField('password')">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Confirm password</div>
+          <mat-form-field appearance="outline">
+            <input type="text" (change)="checkValidity(editForm.get('confirmPassword')!.valid)"
+                   formControlName="confirmPassword" matInput placeholder="••••••"
+                   (focus)="setFocusedField('Confirm Password')">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Confirm password</div>
+          <mat-form-field appearance="outline">
+            <input type="text" (change)="checkValidity(editForm.get('city')!.valid)"
+                   formControlName="city" matInput placeholder="••••••"
+                   (focus)="setFocusedField('Confirm Password')">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Confirm password</div>
+          <mat-form-field appearance="outline">
+            <input type="text" (change)="checkValidity(editForm.get('confirmPassword')!.valid)"
+                   formControlName="confirmPassword" matInput placeholder="••••••"
+                   (focus)="setFocusedField('Confirm Password')">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Confirm password</div>
+          <mat-form-field appearance="outline">
+            <input type="text" (change)="checkValidity(editForm.get('country')!.valid)"
+                   formControlName="country" matInput placeholder="••••••"
+                   (focus)="setFocusedField('Confirm Password')">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <div>Confirm password</div>
+          <mat-form-field appearance="outline">
+            <input type="text" (change)="checkValidity(editForm.get('zipCode')!.valid)"
+                   formControlName="zipCode" matInput placeholder="••••••"
+                   (focus)="setFocusedField('Confirm Password')">
+          </mat-form-field>
+        </div>
+      </form>
+
+
+    </div>
+    <div *ngIf="validitiy" class="submit">
+      <img src="./assets/button/{{validitiy}}.png">
+    </div>
+    <div *ngIf="questionList.length" class="formDescription ">
+      <div>Test your knowledge</div>
+      <p>industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer</p>
+    </div>
+    <div *ngFor="let question of questionList ;let index=index" class="question">
+      <div class="questionTitle">
+        <div class="questionNumber">Question {{index + 1}} :</div>
+        <div class="questionText">{{question.label}}</div>
+      </div>
+      <div class="questionAnswer">
+        <mat-selection-list #shoes>
+          <mat-list-option *ngFor="let shoe of question.options" checkboxPosition="before" [value]="shoe">
+            {{shoe}}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </div>
+  </div>
+  <div class="reactionContainer">
+    <!--<div class="selectedFields" [ngClass]="{'hiddenText':focusedField.length===0}">
+      <div>
+        Selected Fields :
+      </div>
+      <span>
+        {{focusedField}}
+      </span>
+    </div>-->
+    <div *ngIf="focusedField.length===0" class="image">
+      <img src="./assets/images/Logo-team.png" alt="">
+    </div>
+    <div *ngIf="focusedField.length!==0" class="image2">
+      <img *ngIf="editForm.valid" src="./assets/images/far7an.png" alt="">
+      <img *ngIf="!editForm.valid" src="./assets/images/m8achach.png" alt="">
+    </div>
+
+    <!-- <div class="constraints"  [ngClass]="{'hiddenText':focusedField.length===0}">
+       <div>
+         Constraints :
+       </div>    </div>-->
+  </div>
+</div>
+
+
+
